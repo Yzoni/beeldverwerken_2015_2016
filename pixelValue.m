@@ -2,7 +2,7 @@ function [ color ] = pixelValue( image, x, y, method, borderMethodName )
 %
 imageSize = size(image);
 if not(inImage(imageSize, x, y))
-    [newX, newY] = borderMethod( x, y, borderMethodName );
+    [newX, newY] = borderMethod( imageSize, x, y, borderMethodName );
 else
     newX = x;
     newY = y;
