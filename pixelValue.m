@@ -1,7 +1,12 @@
 function [ color ] = pixelValue( image, x, y, method, borderMethodName )
 %
 imageSize = size(image);
-[newX, newY] = borderMethod( imageSize, x, y, borderMethodName );
+if not(inImage(imageSize, x, y))
+    [newX, newY] = borderMethod( x, y, borderMethodName );
+else
+    newX = x;
+    newY = y;
+end
 
 switch( method )
         case 'nearest'
@@ -16,10 +21,7 @@ switch( method )
                     (1 - a) * b * image( ceil(newX), floor(newY) ) + ...
                     a * b * image( floor(newX), ceil(newY) ) + ...
                     a * (1 - b) * image( ceil(newX), ceil(newY) );
-            a
-            b
-            color
             return;
-    end
+end
 
 end

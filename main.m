@@ -13,9 +13,6 @@ image = im2double( image );
 % plot ( profile ( image , 100 , 100 , 120 , 120 , 100 , 'linear', 'nearest_border') );
 
 tic;
-imshow( rotateImage( image, (pi/6), 'nearest', 'nearest_border' ) )
-toc
+imshow( rotateImage( image, (pi/6), 'nearest', 'constant_border' ) )
 
-% tic;
-% imshow( rotateImage( image, (pi/6), 'linear', 'constant_border' ) )
-% toc
+toc
