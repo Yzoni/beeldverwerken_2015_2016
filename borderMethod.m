@@ -12,9 +12,9 @@ switch( borderMethod )
 			newX = 1;
 		else
 			newX = x;
-		end
+        end
 		
-		if (y > imageSize(2))
+        if (y > imageSize(2))
 			newY = imageSize(2);
 		elseif (y < 1)
 			newY = 1;
