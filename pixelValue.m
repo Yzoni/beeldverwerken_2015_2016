@@ -14,7 +14,6 @@ switch( method )
             return;
 
         case 'linear'
-            % TODO a and b
             a = ceil(newX) - floor(newX);
             b = (1 + newX)* floor(newX) - newX * ceil(newX);
             color = (1 - a) * (1 - b) * image( floor(newX), floor(newY) ) + ...
