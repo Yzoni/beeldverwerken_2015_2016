@@ -1,10 +1,10 @@
-function [ projMatrix ] = createProjectionMatrix(xy, uv)
+function projMatrix = createProjectionMatrix ( xy , uv )
 % calculation of projection matrix
-x = xy (: , 1);
-y = xy (: , 2);
+x = xy (: , 1); % First column
+y = xy (: , 2); % Second column
 % we cannot use x’ and y’ in Matlab because ’ means transposed
-u = uv (: , 1);
-v = uv (: , 2);
+u = uv (: , 1); % First column
+v = uv (: , 2); % Second column
 o = ones ( size ( x ));
 z = zeros ( size ( x ));
 Aoddrows = [x , y , o , z , z , z , -u .* x , -u .* y , -u ];
