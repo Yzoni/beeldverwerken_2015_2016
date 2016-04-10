@@ -2,12 +2,12 @@ clear;
 clc;
 
 image_camera = imread( 'res/cameraman.jpg' );
-image_camera = rgb2gray( image );
-image_camera = im2double( image );
+image_camera = rgb2gray( image_camera );
+image_camera = im2double( image_camera );
 
 image_flyers = imread( 'res/flyers.png' );
-image_flyers = rgb2gray( image );
-image_flyers = rgb2gray( image );
+image_flyers = rgb2gray( image_flyers );
+image_flyers = rgb2gray( image_flyers );
 
 
 %%%%%%%%%%%%%%
@@ -24,6 +24,7 @@ hold on;
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'nearest', 'nearest_border') );
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'linear', 'nearest_border') );
 hold off;
+% TODO MAKE CONSTANT BORDER CONSTANT COLOR
 
 %%%%%
 % 2 d)
@@ -44,15 +45,20 @@ hold off;
 % Question 3 %
 %%%%%%%%%%%%%%
 
-%%%%%%%%%%%
-% 3 a b & d)
-%%%%%%%%%%%
+%%%%%%%
+% 3 a b)
+%%%%%%%
 imshow( rotateImage( image_camera, (pi/6), 'linear', 'periodic_border' ) )
 % TODO REMOVE LOOPS
-% TODO BETTER RESIZE
+
+%%%%%%%
+% 3 c)
+%%%%%%%
+borderedImage = resizeImage(image_camera, (pi/6), 'nearest');
+imshow( rotateImage(rotateImage( borderedImage, (pi/6), 'linear', 'periodic_border' ) )
 
 %%%%%
-% 3 c)
+% 3 d)
 %%%%%
 tic;
 rotateImage( image_camera, (pi/6), 'nearest', 'nearest_border' );
@@ -63,7 +69,7 @@ rotateImage( image_camera, (pi/6), 'linear', 'nearest_border' );
 linear_time = toc
 
 %%%%%
-% 3 d)
+% 3 e)
 %%%%%
 nearest_distance = distanceMeasure(image_camera, 'nearest')
 linear_distance = distanceMeasure(image_camera, 'linear')
