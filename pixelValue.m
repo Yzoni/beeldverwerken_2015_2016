@@ -14,12 +14,12 @@ switch( method )
             return;
 
         case 'linear'
-            a = ceil(newX) - floor(newX);
-            b = (1 + newX) * floor(newX) - newX * ceil(newX);
+            a = floor(newX + 1) - floor(newX);
+            b = (1 + newX) * floor(newX) - newX * floor(newX + 1);
             color = (1 - a) * (1 - b) * image( floor(newX), floor(newY) ) + ...
-                    (1 - a) * b * image( floor(newX), ceil(newY) ) + ...
-                    a * b * image( ceil(newX), floor(newY) ) + ...
-                    a * (1 - b) * image( ceil(newX), floor(newY) );
+                    (1 - a) * b * image( floor(newX), floor(newY + 1) ) + ...
+                    a * b * image( floor(newX + 1), floor(newY + 1) ) + ...
+                    a * (1 - b) * image( floor(newX + 1), floor(newY) );
             return;
 end
 
