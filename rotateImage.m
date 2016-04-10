@@ -13,7 +13,7 @@ t2 = imageCenterX;
 
 rMatrix = [(cos(phi)) (-sin(phi)) t1; (sin(phi)) (cos(phi)) t2; 0 0 1];
 t1Translate = [1 0 -t1; 0 1 -t2; 0 0 1];
-newImage = zeros(imageSizeX, imageSizeY);
+rotatedImage = zeros(imageSizeX, imageSizeY);
 
 for x = 1:imageSizeX
 	for y = 1:imageSizeY
