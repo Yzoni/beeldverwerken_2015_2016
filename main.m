@@ -48,7 +48,6 @@ hold off;
 % 3 a b)
 %%%%%%%
 imshow( rotateImage( image_camera, (pi/6), 'linear', 'constant_border' ) )
-% TODO REMOVE LOOPS
 
 %%%%%%%
 % 3 c)
@@ -89,7 +88,6 @@ y2 = 357;
 x3 = 357;
 y3 = 357;
 imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
-% TODO REMOVE LOOPS
 
 
 %%%%%%%%%%%%%%

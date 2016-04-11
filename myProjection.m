@@ -1,9 +1,10 @@
 function projection = myProjection ( image , x1 , y1 , x2 , y2 , x3 , y3 , x4 , y4 , m , n , method , borderMethodName)
 projection = zeros (n , m ); % allocate new image of correct size
 % calculate projection matrix
-xymatrix = [x1, y1; x2, y2; x3, y3; x4, y4];
-% Map corners of image to dimensions of new image so uv 
-uvmatrix = [1, 1; m, 1; m, n; 1, n];
+xymatrix = [x1 x2 x3 x4; y1 y2 y3 y4]';
+% Map corners of image to dimensions of new image so uv maps to the
+% following coordinates
+uvmatrix = [1 1 m m; 1 n n 1]';
 
 M = createProjectionMatrix(xymatrix, uvmatrix);
 for xIndex = 1: m
