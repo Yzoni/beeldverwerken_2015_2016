@@ -101,7 +101,7 @@ y3 = 357;
 %%%%%%%%%%%
 imshow(image_flyers)
 [x, y] = ginput(4);
-imshow( myProjection(image_flyers, x(1), y(1), x(2), y(2), x(3), y(3), x(4), y(4), 500, 500, 'nearest', 'constant_border') )
+imshow( myProjection(image_flyers, x(1), y(1), x(2), y(2), x(3), y(3), x(4), y(4), 500, 500, 'linear', 'constant_border') )
 % TODO REMOVE LOOPS
 
 
