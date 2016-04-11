@@ -46,11 +46,8 @@ hold off;
 %%%%%%%
 % 3 a b)
 %%%%%%%
-<<<<<<< HEAD
 imshow( rotateImage( image_camera, (pi/6), 'linear', 'periodic_border' ) )
-=======
-imshow( rotateImage( image_camera, (pi/6), 'linear', 'constant_border' ) )
->>>>>>> e0618f27389f6fab1a50f2e640e78e6143a42276
+
 
 %%%%%%%
 % 3 c)
