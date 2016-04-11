@@ -122,8 +122,8 @@ imshow( myProjection(image_flyers, x(1), y(1), x(2), y(2), x(3), y(3), x(4), y(4
 % 8 a b c)
 %%%%%%%%%
 
-image_calibrationPoints = imread('calibrationpoints.jpg');
-load('calibrationpoints.mat');
+image_calibrationPoints = imread('res/calibrationpoints.jpg');
+load('res/calibrationpoints.mat');
 projectionMatrix = estimateProjectionMatrix(xy, XYZ);
 
 cube = createCube(1, [0,0,0]);
