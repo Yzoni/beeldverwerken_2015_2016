@@ -14,10 +14,11 @@ t1Translate = [1 0 -t1; 0 1 -t2; 0 0 1];
 
 % Transformed points
 newPoint = rMatrix * t1Translate * [x1 x2 x3; y1 y2 y3; 1 1 1];
-
-A = [x1, x2, x3; y1, y2, y3; 1, 1, 1];
-B = [newPoint(1,1), newPoint(1,2), newPoint(1,3); newPoint(2,1), newPoint(2,2), newPoint(2,3)];
+A = [1 1 N; 1 M M; 1 1 1];
+B = [newPoint(1,1) newPoint(1,2) newPoint(1,3); newPoint(2,1) newPoint(2,2) newPoint(2,3)];
+%B = [x1 x2 x3; y1 y2 y3];
 X = B / A;
+
 
 % Repeat matrix non sequentially Nx1 Matrix and then reshape into 1xN*M matrix
 xmatrix = reshape(repmat((1:M), N, 1), 1, N*M);
