@@ -46,7 +46,11 @@ hold off;
 %%%%%%%
 % 3 a b)
 %%%%%%%
+<<<<<<< HEAD
 imshow( rotateImage( image_camera, (pi/6), 'linear', 'periodic_border' ) )
+=======
+imshow( rotateImage( image_camera, (pi/6), 'linear', 'constant_border' ) )
+>>>>>>> e0618f27389f6fab1a50f2e640e78e6143a42276
 
 %%%%%%%
 % 3 c)
@@ -79,14 +83,15 @@ linear_distance = distanceMeasure(image_camera, 'linear')
 %%%%%%%%%
 % 4 a b c)
 %%%%%%%%%
-x1 = 1;
-y1 = 1;
-x2 = 1;
-y2 = 357;
-x3 = 357;
-y3 = 357;
-imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
 
+% Paralellogram to transform
+x1 = 85;
+y1 = 35;
+x2 = 85;
+y2 = 182;
+x3 = 245;
+y3 = 182;
+imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 357, 357, 'linear', 'nearest_border') )
 
 
 %%%%%%%%%%%%%%
@@ -96,6 +101,7 @@ imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'near
 %%%%%%%%%%%
 % 5 a b c d)
 %%%%%%%%%%%
+
 imshow(image_flyers)
 [x, y] = ginput(4);
 imshow( myProjection(image_flyers, x(1), y(1), x(2), y(2), x(3), y(3), x(4), y(4), 500, 500, 'linear', 'constant_border') )

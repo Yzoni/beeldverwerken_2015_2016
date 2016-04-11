@@ -2,6 +2,10 @@ function [ color ] = pixelValue( image, x, y, method, borderMethodName )
 %
 imageSize = size(image);
 if not(inImage(imageSize, x, y))
+    if strcmp(borderMethodName, 'constant_border')
+       color = 0;
+       return;
+    end
     [newX, newY] = borderMethod( imageSize, x, y, borderMethodName );
 else
     newX = x;
