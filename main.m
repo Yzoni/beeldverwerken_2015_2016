@@ -24,7 +24,6 @@ hold on;
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'nearest', 'nearest_border') );
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'linear', 'nearest_border') );
 hold off;
-% TODO MAKE CONSTANT BORDER CONSTANT COLOR
 
 %%%%%
 % 2 d)
@@ -38,7 +37,6 @@ hold on;
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'nearest', 'nearest_border') );
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'linear', 'nearest_border') );
 hold off;
-% TODO COMPARISON
 
 
 %%%%%%%%%%%%%%
@@ -49,7 +47,6 @@ hold off;
 % 3 a b)
 %%%%%%%
 imshow( rotateImage( image_camera, (pi/6), 'linear', 'periodic_border' ) )
-% TODO REMOVE LOOPS
 
 %%%%%%%
 % 3 c)
@@ -88,9 +85,8 @@ x2 = 1;
 y2 = 357;
 x3 = 357;
 y3 = 357;
-%imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
-% TODO REMOVE LOOPS
-% TODO SET SPECIFIC PARAMETERS
+imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
+
 
 
 %%%%%%%%%%%%%%
@@ -103,13 +99,29 @@ y3 = 357;
 imshow(image_flyers)
 [x, y] = ginput(4);
 imshow( myProjection(image_flyers, x(1), y(1), x(2), y(2), x(3), y(3), x(4), y(4), 500, 500, 'linear', 'constant_border') )
-% TODO REMOVE LOOPS
 
 
 %%%%%%%%%%%%%%
 % Question 7 %
 %%%%%%%%%%%%%%
 
-%%%%%%%%%%%
-% 7 a b c d)
-%%%%%%%%%%%
+%%%%%%%
+% 7 a b)
+%%%%%%%
+
+
+
+%%%%%%%%%%%%%%
+% Question 8 %
+%%%%%%%%%%%%%%
+
+%%%%%%%%%
+% 8 a b c)
+%%%%%%%%%
+
+image_calibrationPoints = imread('calibrationpoints.jpg');
+load('calibrationpoints.mat');
+projectionMatrix = estimateProjectionMatrix(xy, XYZ);
+
+cube = createCube(1, [0,0,0]);
+subPlotFaces(cube)
