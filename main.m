@@ -7,7 +7,7 @@ image_camera = im2double( image_camera );
 
 image_flyers = imread( 'res/flyers.png' );
 image_flyers = rgb2gray( image_flyers );
-image_flyers = rgb2gray( image_flyers );
+image_flyers = im2double( image_flyers );
 
 
 %%%%%%%%%%%%%%
@@ -55,7 +55,7 @@ imshow( rotateImage( image_camera, (pi/6), 'linear', 'periodic_border' ) )
 % 3 c)
 %%%%%%%
 borderedImage = resizeImage(image_camera, (pi/6), 'nearest');
-imshow( rotateImage(rotateImage( borderedImage, (pi/6), 'linear', 'periodic_border' ) )
+imshow( rotateImage(rotateImage( borderedImage, (pi/6), 'linear', 'periodic_border' ), -(pi/6), 'linear', 'periodic_border' ))
 
 %%%%%
 % 3 d)
@@ -82,13 +82,13 @@ linear_distance = distanceMeasure(image_camera, 'linear')
 %%%%%%%%%
 % 4 a b c)
 %%%%%%%%%
-x1 = 0;
-y1 = 0;
-x2 = 0;
-y2 = 0;
-x3 = 0;
-y3 = 0;
-imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
+x1 = 1;
+y1 = 1;
+x2 = 1;
+y2 = 357;
+x3 = 357;
+y3 = 357;
+%imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
 % TODO REMOVE LOOPS
 % TODO SET SPECIFIC PARAMETERS
 
