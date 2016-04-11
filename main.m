@@ -24,7 +24,6 @@ hold on;
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'nearest', 'nearest_border') );
 plot ( profile ( image_camera , 100 , 100 , 120 , 120 , 100 , 'linear', 'nearest_border') );
 hold off;
-% TODO MAKE CONSTANT BORDER CONSTANT COLOR
 
 %%%%%
 % 2 d)
@@ -48,7 +47,7 @@ hold off;
 %%%%%%%
 % 3 a b)
 %%%%%%%
-imshow( rotateImage( image_camera, (pi/6), 'linear', 'periodic_border' ) )
+imshow( rotateImage( image_camera, (pi/6), 'linear', 'constant_border' ) )
 % TODO REMOVE LOOPS
 
 %%%%%%%
