@@ -22,11 +22,9 @@ xmatrix = reshape(repmat((1:imageSizeX), imageSizeY, 1), 1, imageSizeY*imageSize
 ymatrix = repmat((1:imageSizeY), 1, imageSizeX);
 % Create additional 1 vector
 o = ones(1, imageSizeY * imageSizeX);
-% Combine them
-combined = [xmatrix; ymatrix; o];
 % Transform the whole thing
 transformation = rMatrix * t1Translate;
-newPoint = transformation * combined;
+newPoint = transformation * [xmatrix; ymatrix; o];
 sizeRotatedValues = size(newPoint);
 % Put points in appropriate places, still need one for loop for pixel value
 for i = 1:sizeRotatedValues(2)
