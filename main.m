@@ -81,15 +81,15 @@ linear_distance = distanceMeasure(image_camera, 'linear')
 %%%%%%%%%
 % 4 a b c)
 %%%%%%%%%
+% Corner points
 x1 = 1;
 y1 = 1;
 x2 = 1;
 y2 = 357;
 x3 = 357;
 y3 = 357;
-%imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
+imshow( myAffine(image_camera, x1, y1, x2, y2, x3, y3, 500, 500, 'linear', 'nearest_border') )
 % TODO REMOVE LOOPS
-% TODO SET SPECIFIC PARAMETERS
 
 
 %%%%%%%%%%%%%%
