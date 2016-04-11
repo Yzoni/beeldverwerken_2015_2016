@@ -1,16 +1,18 @@
-function [ matrixA ] = matrixAQ7( xyz, uv  )
+function [ matrixA ] = estimateProjectionMatrix(xy, XYZ)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
-x = xyz (: , 1);
-y = xyz (: , 2);
-y = xyz (: , 3);
+x = xy (: , 1);
+y = xy (: , 2);
+
 % we cannot use x’ and y’ in Matlab because ’ means transposed
-u = uvw (: , 1);
-v = uvw (: , 2);
+X = XYZ (: , 1);
+Y = XYZ (: , 2);
+Z = XYZ (: , 3);
+
 o = ones ( size ( x ));
 z = zeros ( size ( x ));
-Aoddrows = [x , y ,z, o , z, z , z , z , -u .* x , -u .* y , -u .* z, -u ];
-Aevenrows = [z , z , z, z, x , y , z, o , -v .* x , -v .* y , -v .* z, -v ];
+Aoddrows = [X , Y ,Z, o , z, z , z , z , -X .* x , -Y .* x , -Z .* x, -x ];
+Aevenrows = [z , z , z, z, X , Y , Z, o , -X .* y , -Y .* y , -Z .* y, -y ];
 A = [ Aoddrows ; Aevenrows ];
 
 % Do Singular Value Decomposition to obtain m
