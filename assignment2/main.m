@@ -88,6 +88,8 @@ ylabel('Elapsed Time')
 % Complexity seems to be linear so O(sigma)
 
 %% Question 2.10
+% See Gd.m
+Gd(image, 3, 1, 1)
 
 %% Question 2.11
 
