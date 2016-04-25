@@ -141,9 +141,13 @@ yy = -100:10:100;
 Gx = Gd(F, 1, 0, 1);
 Gy = Gd(F, 1, 1, 0);
 
+% Subsample image
+Gx = Gx(1:10:end, 1:10:end)
+Gy = Gy(1:10:end, 1:10:end)
+
 imshow (F , [] , 'xData' , x , 'yData' , y );
 hold on ;
-quiver ( xx , yy , Gx , Gy , 'r' );
+quiver ( xx , yy , Gx, Gy, 'r' );
 hold off ;
 
 
@@ -152,14 +156,16 @@ rotatedImage = rotateImage(F, 1/18 * pi, 'linear', 'constant_border');
 
 xx = -100:10:100;
 yy = -100:10:100;
-[ XX , YY ] = meshgrid ( xx , yy );
 
-Gx = Gd(F, 1, 0, 1);
-Gy = Gd(F, 1, 1, 0);
+Gx = Gd(rotatedImage, 1, 0, 1);
+Gy = Gd(rotatedImage, 1, 1, 0);
 
-imshow (F , [] , 'xData' , x , 'yData' , y );
+Gx = Gx(1:10:end, 1:10:end);
+Gy = Gy(1:10:end, 1:10:end);
+
+imshow (rotatedImage , [] , 'xData' , x , 'yData' , y );
 hold on ;
-quiver ( xx , yy , Gx , Gy , 'r' );
+quiver ( xx , yy , Gx , Gy , 5, 'r');
 hold off ;
 
 %% Question 3.6)
