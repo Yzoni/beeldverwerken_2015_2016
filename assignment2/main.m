@@ -70,11 +70,11 @@ for sigma = 1 : maxSigma
     for i = 1 : timesRun
         % Run multiple times to get an accuracte impression
         tic;        
-        gaussian = Gauss1(sigma);
+        gauss1 = Gauss1(sigma);
         % First convolve with columns
-        Fnew = imfilter(image, gaussian', 'conv', 'replicate');
+        Fnew = imfilter(image, gauss1', 'conv', 'replicate');
         % Then with rows
-        imfilter(Fnew, gaussian, 'conv', 'replicate');
+        imfilter(Fnew, gauss1, 'conv', 'replicate');
         totalTime = totalTime + toc;
     end
     % Take average of runs to calculate runtime
@@ -109,7 +109,7 @@ iterations = 100;
 time = zeros(iterations);
 for sigma = 1:iterations
     tic;
-    Gauss(sigma);
+    imfilter (F , Gauss ( sigma ) , 'conv' , 'replicate' );
     time(sigma) = toc;
 end
 
@@ -121,7 +121,9 @@ iterations = 300;
 time = zeros(iterations);
 for sigma = 1:iterations
     tic;
-    Gauss1(sigma);
+    gauss1 = Gauss1 ( sigma );
+    imfilter (F , gauss1 , 'conv' , 'replicate' );
+    imfilter (F , gauss1' , 'conv' , 'replicate' );
     time(sigma) = toc;
 end
 
