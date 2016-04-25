@@ -1,4 +1,4 @@
-% Exercise 2 Beeldverwerken
+%% Exercise 2 Beeldverwerken
 % Yorick de Boer
 % Jeroen Terstall
 
@@ -8,7 +8,7 @@
 %% Question 2.2
 % We think that the sum will be equal to 1 because according to probability
 % theory all probabilities add up to 1
-sum(sum(Gauss(3)));
+sum(sum(Gauss(1)))
 
 %% Question 2.3
 mesh(Gauss(3));
@@ -42,8 +42,7 @@ xlabel('Sigma')
 ylabel('Elapsed Time')
 
 %% Question 2.6
-% When we changed the kernel size to reflect 2.5 times sigma the graph
-% seems to have turned into a linear function with O(n)
+% the graph seems to be a linear function with O(n)
 
 %% Question 2.7
 % TODO
@@ -80,8 +79,17 @@ ylabel('Elapsed Time')
 %% Question 2.10
 
 %% Question 2.11
+%% GAUS test)
+mesh(Gauss(3))
+
+
 %% GAUS1 test)
-plot(Gauss1(3))
+plot(Gauss1(1))
+
+
+%%
+sum(sum(Gauss(1)))
+sum(sum(Gauss1(1)))
 
 
 %% GAUS time plot)
@@ -106,8 +114,6 @@ for sigma = 1:iterations
 end
 
 plot(time);
-
-
 %% Question 3.2)
 x = -100:100;
 y = -100:100;

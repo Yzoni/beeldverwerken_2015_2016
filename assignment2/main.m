@@ -1,4 +1,4 @@
-% Exercise 2 Beeldverwerken
+%% Exercise 2 Beeldverwerken
 % Yorick de Boer
 % Jeroen Terstall
 
@@ -8,7 +8,7 @@
 %% Question 2.2
 % We think that the sum will be equal to 1 because according to probability
 % theory all probabilities add up to 1
-sum(sum(Gauss(3)))
+sum(sum(Gauss(1)))
 
 %% Question 2.3
 mesh(Gauss(3));
@@ -52,6 +52,9 @@ ylabel('Elapsed Time')
 sum(Gauss1(3))
 
 %% Question 2.9
+image = imread('cameraman.jpg');
+image = rgb2gray(image);
+image = im2double(image);
 
 maxSigma = 150;
 timesRun = 200;
@@ -79,8 +82,18 @@ ylabel('Elapsed Time')
 %% Question 2.10
 
 %% Question 2.11
+
+%% GAUS test)
+mesh(Gauss(3))
+
+
 %% GAUS1 test)
-plot(Gauss1(3))
+plot(Gauss1(1))
+
+
+%%
+sum(sum(Gauss(1)))
+sum(sum(Gauss1(1)))
 
 
 %% GAUS time plot)
@@ -105,8 +118,6 @@ for sigma = 1:iterations
 end
 
 plot(time);
-
-
 %% Question 3.2)
 x = -100:100;
 y = -100:100;
