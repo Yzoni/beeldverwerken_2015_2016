@@ -1,4 +1,4 @@
-function [ D ] = Gd (f, sigma, xorder, yorder)
+function [ f ] = Gd (f, sigma, xorder, yorder)
 %GD Summary of this function goes here
 %   Detailed explanation goes here
 

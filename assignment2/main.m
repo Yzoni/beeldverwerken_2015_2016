@@ -94,7 +94,7 @@ ylabel('Elapsed Time')
 Gd(image, 3, 1, 1)
 
 %% Question 2.11
-twojet = Gd(image, 10, 2, 2);
+twojet = Gd(image, 1, 2, 2);
 imshow(twojet, [])
 
 %% Question 3.2)
