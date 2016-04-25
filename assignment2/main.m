@@ -45,7 +45,8 @@ xlabel('Sigma')
 ylabel('Elapsed Time')
 
 %% Question 2.6
-% the graph seems to indicate a linear function with O(sigma)
+% the graph seems to indicate a quadratic function with O(sigma^2) because
+% it keeps going up
 
 %% Question 2.7
 % TODO
@@ -69,8 +70,8 @@ for sigma = 1 : maxSigma
     for i = 1 : timesRun
         % Run multiple times to get an accuracte impression
         tic;        
+        gauss1 = Gauss1(sigma);
         % First convolve with columns
-        gauss1 = Gauss1(3)
         Fnew = imfilter(image, gauss1', 'conv', 'replicate');
         % Then with rows
         imfilter(Fnew, gauss1, 'conv', 'replicate');
@@ -84,7 +85,7 @@ plot(1:maxSigma, elapsedTime)
 xlabel('Sigma')
 ylabel('Elapsed Time')
 
-% Complexity seems to be constant now so O(1)
+% Complexity seems to be linear so O(sigma)
 
 %% Question 2.10
 
