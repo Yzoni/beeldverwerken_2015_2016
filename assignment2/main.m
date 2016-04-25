@@ -70,9 +70,10 @@ for sigma = 1 : maxSigma
         % Run multiple times to get an accuracte impression
         tic;        
         % First convolve with columns
-        Fnew = imfilter(image, Gauss1(3)', 'conv', 'replicate');
+        gauss1 = Gauss1(3)
+        Fnew = imfilter(image, gauss1', 'conv', 'replicate');
         % Then with rows
-        imfilter(Fnew, Gauss1(3), 'conv', 'replicate');
+        imfilter(Fnew, gauss1, 'conv', 'replicate');
         totalTime = totalTime + toc;
     end
     % Take average of runs to calculate runtime
