@@ -94,7 +94,7 @@ ylabel('Elapsed Time')
 Gd(image, 3, 1, 1)
 
 %% Question 2.11
-twojet = Gd(image, 1, 2, 2);
+twojet = Gd(image, 3, 2, 2);
 imshow(twojet, [])
 
 %% Question 3.2)
@@ -124,6 +124,7 @@ title('Fy');
 xx = -100:10:100;
 yy = -100:10:100;
 [ XX , YY ] = meshgrid ( xx , yy );
+
 Fx = V * A * cos(V * XX);
 Fy = W * B * -sin(W * YY);
 imshow (F , [] , 'xData' , x , 'yData' , y );
@@ -133,3 +134,32 @@ hold off ;
 
 
 %% Question 3.4)
+xx = -100:10:100;
+yy = -100:10:100;
+[ XX , YY ] = meshgrid ( xx , yy );
+
+Gx = Gd(F, 1, 0, 1);
+Gy = Gd(F, 1, 1, 0);
+
+imshow (F , [] , 'xData' , x , 'yData' , y );
+hold on ;
+quiver ( xx , yy , Gx , Gy , 'r' );
+hold off ;
+
+
+%% Question 3.5)
+rotatedImage = rotateImage(F, 1/18 * pi, 'linear', 'constant_border');
+
+xx = -100:10:100;
+yy = -100:10:100;
+[ XX , YY ] = meshgrid ( xx , yy );
+
+Gx = Gd(F, 1, 0, 1);
+Gy = Gd(F, 1, 1, 0);
+
+imshow (F , [] , 'xData' , x , 'yData' , y );
+hold on ;
+quiver ( xx , yy , Gx , Gy , 'r' );
+hold off ;
+
+%% Question 3.6)
