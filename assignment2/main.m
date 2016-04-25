@@ -1,3 +1,5 @@
+F = imread( 'cameraman.jpg' );
+
 %% GAUS test)
 mesh(Gauss(3))
 
@@ -16,7 +18,7 @@ iterations = 100;
 time = zeros(iterations);
 for sigma = 1:iterations
     tic;
-    Gauss(sigma);
+    imfilter (F , Gauss ( sigma ) , 'conv' , 'replicate' );
     time(sigma) = toc;
 end
 
@@ -28,7 +30,9 @@ iterations = 300;
 time = zeros(iterations);
 for sigma = 1:iterations
     tic;
-    Gauss1(sigma);
+    gauss1 = Gauss1 ( sigma );
+    imfilter (F , gauss1 , 'conv' , 'replicate' );
+    imfilter (F , gauss1' , 'conv' , 'replicate' );
     time(sigma) = toc;
 end
 
