@@ -8,6 +8,9 @@
 %% Question 2.2
 % We think that the sum will be equal to 1 because according to probability
 % theory all probabilities add up to 1
+% It didnt result into 1 initially because the scale was too low and did
+% cut some of the function, if we give it an initial scale of 100 the value
+% of 1 is obtained
 sum(sum(Gauss(3)))
 
 %% Question 2.3
@@ -48,7 +51,8 @@ ylabel('Elapsed Time')
 % TODO
 
 %% Question 2.8
-% Sum seems to be near 1 so OK
+% Sum seems to be near 1 so OK. Here we also start with an initial scale of
+% 100
 sum(Gauss1(3))
 
 %% Question 2.9

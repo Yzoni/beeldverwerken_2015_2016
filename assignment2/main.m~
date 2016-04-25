@@ -8,6 +8,7 @@
 %% Question 2.2
 % We think that the sum will be equal to 1 because according to probability
 % theory all probabilities add up to 1
+% It didnt result into 1 initially because the scale was too low an
 sum(sum(Gauss(3)))
 
 %% Question 2.3
@@ -22,7 +23,7 @@ image = rgb2gray(image);
 image = im2double(image);
 
 maxSigma = 100;
-timesRun = 50;
+timesRun = 20;
 
 elapsedTime = zeros(maxSigma);
 for sigma = 1 : maxSigma
@@ -42,7 +43,7 @@ xlabel('Sigma')
 ylabel('Elapsed Time')
 
 %% Question 2.6
-% the graph seems to be a linear function with O(n)
+% the graph seems to indicate a linear function with O(sigma)
 
 %% Question 2.7
 % TODO
@@ -56,8 +57,8 @@ image = imread('cameraman.jpg');
 image = rgb2gray(image);
 image = im2double(image);
 
-maxSigma = 150;
-timesRun = 200;
+maxSigma = 100;
+timesRun = 20;
 
 elapsedTime = zeros(maxSigma);
 for sigma = 1 : maxSigma
@@ -78,6 +79,8 @@ figure
 plot(1:maxSigma, elapsedTime)
 xlabel('Sigma')
 ylabel('Elapsed Time')
+
+% Complexity seems to be constant now so O(1)
 
 %% Question 2.10
 
