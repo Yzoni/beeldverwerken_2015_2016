@@ -1,7 +1,84 @@
-%% GAUS test)
-mesh(Gauss(3))
+% Exercise 2 Beeldverwerken
+% Yorick de Boer
+% Jeroen Terstall
 
+%% Question 2.1
+% See Gauss.m
 
+%% Question 2.2
+% We think that the sum will be equal to 1 because according to probability
+% theory all probabilities add up to 1
+sum(sum(Gauss(3)))
+
+%% Question 2.3
+mesh(Gauss(3));
+
+%% Question 2.4
+% Physical unit of scale parameter is ??????
+
+%% Question 2.5
+image = imread('cameraman.jpg');
+image = rgb2gray(image);
+image = im2double(image);
+
+maxSigma = 100;
+timesRun = 50;
+
+elapsedTime = zeros(maxSigma);
+for sigma = 1 : maxSigma
+    totalTime = 0;
+    for i = 1 : timesRun
+        % Run multiple times to get an accuracte impression
+        tic;        
+        H = imfilter(image, Gauss(sigma), 'conv' ,'replicate');
+        totalTime = totalTime + toc;
+    end
+    % Take average of runs to calculate runtime
+    elapsedTime(sigma) = totalTime / timesRun;
+end
+figure
+plot(1:maxSigma, elapsedTime)
+xlabel('Sigma')
+ylabel('Elapsed Time')
+
+%% Question 2.6
+% the graph seems to be a linear function with O(n)
+
+%% Question 2.7
+% TODO
+
+%% Question 2.8
+% Sum seems to be near 1 so OK
+sum(Gauss1(3))
+
+%% Question 2.9
+
+maxSigma = 150;
+timesRun = 200;
+
+elapsedTime = zeros(maxSigma);
+for sigma = 1 : maxSigma
+    totalTime = 0;
+    for i = 1 : timesRun
+        % Run multiple times to get an accuracte impression
+        tic;        
+        % First convolve with columns
+        Fnew = imfilter(image, Gauss1(3)', 'conv', 'replicate');
+        % Then with rows
+        imfilter(Fnew, Gauss1(3), 'conv', 'replicate');
+        totalTime = totalTime + toc;
+    end
+    % Take average of runs to calculate runtime
+    elapsedTime(sigma) = totalTime / timesRun;
+end
+figure
+plot(1:maxSigma, elapsedTime)
+xlabel('Sigma')
+ylabel('Elapsed Time')
+
+%% Question 2.10
+
+%% Question 2.11
 %% GAUS1 test)
 plot(Gauss1(3))
 
