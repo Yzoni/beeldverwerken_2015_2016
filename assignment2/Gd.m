@@ -29,7 +29,11 @@ elseif xorder == 2 && yorder == 1
 elseif xorder == 2 && yorder == 2
 	f = imfilter (f , secondderiv , 'conv' , 'replicate' );
 	f = imfilter (f , secondderiv' , 'conv' , 'replicate' );
+elseif xorder == 2 && yorder == 0
+	f = imfilter (f , secondderiv , 'conv' , 'replicate' );
+elseif xorder == 0 && yorder == 2
+    f = imfilter (f , secondderiv' , 'conv' , 'replicate' );
 else
-	f = None;
+    return;
 end
 
