@@ -3,7 +3,12 @@ mesh(Gauss(3))
 
 
 %% GAUS1 test)
-plot(Gauss1(3))
+plot(Gauss1(1))
+
+
+%%
+sum(sum(Gauss(1)))
+sum(sum(Gauss1(1)))
 
 
 %% GAUS time plot)
