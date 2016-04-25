@@ -13,7 +13,6 @@ firstderiv = -(X / sigma^2) .* gauss1;
 secondderiv = ((X.^2 / sigma^4) - (1 / sigma^2)) .* gauss1;
 
 
-
 if xorder == 0 && yorder == 1
 	f = imfilter (f , firstderiv' , 'conv' , 'replicate' );
 elseif xorder == 1 && yorder == 0
