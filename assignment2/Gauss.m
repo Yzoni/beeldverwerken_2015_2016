@@ -1,7 +1,7 @@
 function [ G ] = Gauss( S )
 %GAUS Summary of this function goes here
 %   Detailed explanation goes here
-scale = 100;
+scale = 100 + (2.5 * S);
 
 x = round(-scale / 2) : round(scale / 2);
 y = round(-scale / 2) : round(scale / 2);
