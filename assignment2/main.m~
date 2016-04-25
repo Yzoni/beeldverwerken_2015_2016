@@ -2,13 +2,18 @@
 % Yorick de Boer
 % Jeroen Terstall
 
+
+
+
 %% Question 2.1
 % See Gauss.m
 
 %% Question 2.2
 % We think that the sum will be equal to 1 because according to probability
 % theory all probabilities add up to 1
-% It didnt result into 1 initially because the scale was too low an
+% It didnt result into 1 initially because the scale was too low and did
+% cut some of the function, if we give it an initial scale of 100 the value
+% of 1 is obtained
 sum(sum(Gauss(3)))
 
 %% Question 2.3
@@ -18,10 +23,6 @@ mesh(Gauss(3));
 % Physical unit of scale parameter is ??????
 
 %% Question 2.5
-image = imread('cameraman.jpg');
-image = rgb2gray(image);
-image = im2double(image);
-
 maxSigma = 100;
 timesRun = 20;
 
@@ -43,13 +44,15 @@ xlabel('Sigma')
 ylabel('Elapsed Time')
 
 %% Question 2.6
-% the graph seems to indicate a linear function with O(sigma)
+% the graph seems to indicate a quadratic function with O(sigma^2) because
+% it keeps going up
 
 %% Question 2.7
 % TODO
 
 %% Question 2.8
-% Sum seems to be near 1 so OK
+% Sum seems to be near 1 so OK. Here we also start with an initial scale of
+% 100
 sum(Gauss1(3))
 
 %% Question 2.9
@@ -66,10 +69,11 @@ for sigma = 1 : maxSigma
     for i = 1 : timesRun
         % Run multiple times to get an accuracte impression
         tic;        
+        gauss1 = Gauss1(sigma);
         % First convolve with columns
-        Fnew = imfilter(image, Gauss1(3)', 'conv', 'replicate');
+        Fnew = imfilter(image, gauss1', 'conv', 'replicate');
         % Then with rows
-        imfilter(Fnew, Gauss1(3), 'conv', 'replicate');
+        imfilter(Fnew, gauss1, 'conv', 'replicate');
         totalTime = totalTime + toc;
     end
     % Take average of runs to calculate runtime
@@ -80,47 +84,14 @@ plot(1:maxSigma, elapsedTime)
 xlabel('Sigma')
 ylabel('Elapsed Time')
 
-% Complexity seems to be constant now so O(1)
+% Complexity seems to be linear so O(sigma)
 
 %% Question 2.10
 
 %% Question 2.11
+twojet = gD(image, scale, 2, 2);
+imshow(twojet, [])
 
-%% GAUS test)
-mesh(Gauss(3))
-
-
-%% GAUS1 test)
-plot(Gauss1(1))
-
-
-%%
-sum(sum(Gauss(1)))
-sum(sum(Gauss1(1)))
-
-
-%% GAUS time plot)
-iterations = 100;
-time = zeros(iterations);
-for sigma = 1:iterations
-    tic;
-    Gauss(sigma);
-    time(sigma) = toc;
-end
-
-plot(time);
-
-
-%% GAUS1 time plot)
-iterations = 300;
-time = zeros(iterations);
-for sigma = 1:iterations
-    tic;
-    Gauss1(sigma);
-    time(sigma) = toc;
-end
-
-plot(time);
 %% Question 3.2)
 x = -100:100;
 y = -100:100;

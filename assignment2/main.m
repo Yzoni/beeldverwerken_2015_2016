@@ -2,6 +2,12 @@
 % Yorick de Boer
 % Jeroen Terstall
 
+% LOAD stuff
+image = imread('cameraman.jpg');
+image = rgb2gray(image);
+image = im2double(image);
+
+
 %% Question 2.1
 % See Gauss.m
 
@@ -20,10 +26,6 @@ mesh(Gauss(3));
 % Physical unit of scale parameter is ??????
 
 %% Question 2.5
-image = imread('cameraman.jpg');
-image = rgb2gray(image);
-image = im2double(image);
-
 maxSigma = 100;
 timesRun = 20;
 
@@ -90,44 +92,9 @@ ylabel('Elapsed Time')
 %% Question 2.10
 
 %% Question 2.11
+twojet = Gd(image, 10, 2, 2);
+imshow(twojet, [])
 
-%% GAUS test)
-mesh(Gauss(3))
-
-
-%% GAUS1 test)
-plot(Gauss1(1))
-
-
-%%
-sum(sum(Gauss(1)))
-sum(sum(Gauss1(1)))
-
-
-%% GAUS time plot)
-iterations = 100;
-time = zeros(iterations);
-for sigma = 1:iterations
-    tic;
-    imfilter (F , Gauss ( sigma ) , 'conv' , 'replicate' );
-    time(sigma) = toc;
-end
-
-plot(time);
-
-
-%% GAUS1 time plot)
-iterations = 300;
-time = zeros(iterations);
-for sigma = 1:iterations
-    tic;
-    gauss1 = Gauss1 ( sigma );
-    imfilter (F , gauss1 , 'conv' , 'replicate' );
-    imfilter (F , gauss1' , 'conv' , 'replicate' );
-    time(sigma) = toc;
-end
-
-plot(time);
 %% Question 3.2)
 x = -100:100;
 y = -100:100;
